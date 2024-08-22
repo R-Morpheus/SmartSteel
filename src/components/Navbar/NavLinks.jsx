@@ -15,10 +15,10 @@ const NavLinks = ({ classes }) => {
             </HashLink>
             <div className="flex flex-col items-center justify-center px-4">
                 <HashLink className={`font-extrabold hover:text-blue-900 ${classes}`} to="/">
-                    +798343434873
+                    +79061121703
                 </HashLink>
                 <HashLink className={`font-extrabold hover:text-blue-900 ${classes}`} to="/">
-                    +798343434873
+                    +79872711206
                 </HashLink>
             </div>
         </div>
