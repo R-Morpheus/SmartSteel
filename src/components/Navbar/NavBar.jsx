@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import NavLinks from './NavLinks';
 import { HashLink } from 'react-router-hash-link';
 import logo from '../../images/logo.png';
+import logoBlack from "../../images/logo-black.png";
 
 const NavBar = () => {
     const [top, setTop] = useState(!window.scrollY);
@@ -23,7 +24,7 @@ const NavBar = () => {
         <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top ? 'bg-white shadow-lg' : ''}`}>
             <div className="flex flex-row justify-between items-center py-2 px-3">
                 <div className="flex flex-row justify-center md:px-6 md:mx-6 items-center text-center font-semibold">
-                    <img src={logo} alt="logo" className={'w-16 h-16'}/>
+                    <img src={top ? logo : logoBlack} alt="logo" className={'w-16 h-16'}/>
                     <HashLink smooth to="/#hero">
                         <h1 className={`play-bold font-extrabold text-4xl transition-colors duration-300 ${top ? 'text-white' : 'text-black'}`}>
                             CмартСталь
@@ -31,7 +32,7 @@ const NavBar = () => {
                     </HashLink>
                 </div>
                 <div className="group flex flex-col items-center">
-                    <button className="p-2 rounded-lg lg:hidden text-blue-900" onClick={handleClick}>
+                    <button className="p-2 rounded-lg lg:hidden text-white" onClick={handleClick}>
                         <svg className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             {isOpen ? (
                                 <path

@@ -30,7 +30,7 @@ function App() {
     });
   }, []);
 
-  useDocTitle("Сталь арт. Металлообработка. ЧПУ и тд");
+  useDocTitle("Металлообработка. Казань. ЧПУ. Токарные работы. Фрезерные работы.");
 
   return (
     <>
@@ -39,7 +39,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/get-demo" element={<DemoProduct />} /> 
           </Routes>
         </ScrollToTop>
       </Router>
