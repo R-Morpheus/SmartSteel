@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import NavLinks from './NavLinks';
 import { HashLink } from 'react-router-hash-link';
+import Modal from '../Modal';
 import logo from '../../images/logo.png';
 import logoBlack from "../../images/logo-black.png";
 
 const NavBar = () => {
     const [top, setTop] = useState(!window.scrollY);
     const [isOpen, setisOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Для управления модальным окном
 
     function handleClick() {
         setisOpen(!isOpen);
     }
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     useEffect(() => {
         const scrollHandler = () => {
@@ -49,17 +59,24 @@ const NavBar = () => {
                         </svg>
                     </button>
                     <div className="hidden space-x-6 lg:inline-block p-5">
-                        <NavLinks classes={`${top ? 'text-white' : 'text-black'}`} />
+                        <NavLinks classes={`${top ? 'text-white' : 'text-black'}`} onContactClick={handleOpenModal} />
                     </div>
 
                     <div className={`fixed transition-transform duration-300 ease-in-out transit flex justify-center left-0 w-full h-auto rounded-md p-24 bg-white lg:hidden shadow-xl top-14 ${isOpen ? "block" : "hidden"}`}>
                         <div className="flex flex-col space-y-6">
-                            <NavLinks classes={`${top ? 'text-white' : 'text-black'}`} />
+                            <NavLinks classes={`${top ? 'text-white' : 'text-black'}`} onContactClick={handleOpenModal} />
                         </div>
                     </div>
-
                 </div>
             </div>
+
+            {/* Модальное окно */}
+            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+                <h2 className="text-xl font-bold mb-4">Контакты</h2>
+                <p>Телефон: +79061121703</p>
+                <p>Email: example@example.com</p>
+                <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
+            </Modal>
         </nav>
     );
 }

@@ -7,7 +7,7 @@ const Hero = () => {
     return (
         <>
             <div className="relative hero h-screen w-full bg-cover bg-center" id="hero" style={{ backgroundImage: `url(${heroImg})` }}>
-                <div className="absolute inset-0 bg-black opacity-50"></div> {/* Optional dark overlay */}
+                <div className="absolute inset-0 bg-black opacity-50"></div>
 
                 <div>
                     <NavBar />

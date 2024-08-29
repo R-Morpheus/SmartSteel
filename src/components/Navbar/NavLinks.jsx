@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link';
 
-const NavLinks = ({ classes }) => {
+const NavLinks = ({ classes, onContactClick }) => {
     return (
         <div className="flex items-center">
             <HashLink className={`px-4 font-extrabold hover:text-blue-900 ${classes}`} smooth to="/#services">
@@ -10,17 +10,12 @@ const NavLinks = ({ classes }) => {
             <HashLink className={`px-4 font-extrabold hover:text-blue-900 ${classes}`} smooth to="/#about">
                 О нас
             </HashLink>
-            <HashLink className={`px-4 font-extrabold hover:text-blue-900 ${classes}`} to="/contact#contact">
+            <button onClick={onContactClick} className={`px-4 font-extrabold hover:text-blue-900 ${classes}`}>
                 Контакты
-            </HashLink>
-            <div className="flex flex-col items-center justify-center px-4">
-                <HashLink className={`font-extrabold hover:text-blue-900 ${classes}`} to="/">
-                    +79061121703
-                </HashLink>
-                <HashLink className={`font-extrabold hover:text-blue-900 ${classes}`} to="/">
-                    +79872711206
-                </HashLink>
-            </div>
+            </button>
+            <a href="tel:+79061121703" className={`font-extrabold hover:text-blue-900 ${classes}`}>
+                +79061121703
+            </a>
         </div>
     );
 }
