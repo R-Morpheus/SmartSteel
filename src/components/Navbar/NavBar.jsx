@@ -1,26 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import NavLinks from './NavLinks';
 import { HashLink } from 'react-router-hash-link';
-import Modal from '../Modal';
 import logo from '../../images/logo.png';
 import logoBlack from "../../images/logo-black.png";
 
-const NavBar = () => {
+const NavBar = ({ handleOpenModal }) => {
     const [top, setTop] = useState(!window.scrollY);
     const [isOpen, setisOpen] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false); // Для управления модальным окном
 
     function handleClick() {
         setisOpen(!isOpen);
     }
-
-    const handleOpenModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
 
     useEffect(() => {
         const scrollHandler = () => {
@@ -31,18 +21,18 @@ const NavBar = () => {
     }, []);
 
     return (
-        <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top ? 'bg-white shadow-lg' : ''}`}>
+        <nav className={`fixed top-0 w-full z-30 transition duration-300 ease-in-out mb-16 ${!top || isOpen ? 'bg-white shadow-lg' : ''}`}>
             <div className="flex flex-row justify-between items-center py-2 px-3">
                 <div className="flex flex-row justify-center md:px-6 md:mx-6 items-center text-center font-semibold">
-                    <img src={top ? logo : logoBlack} alt="logo" className={'w-16 h-16'}/>
+                    <img src={top && !isOpen ? logo : logoBlack} alt="logo" className={'w-16 h-16'} />
                     <HashLink smooth to="/#hero">
-                        <h1 className={`play-bold font-extrabold text-4xl transition-colors duration-300 ${top ? 'text-white' : 'text-black'}`}>
+                        <h1 className={`play-bold font-extrabold text-4xl transition-colors duration-300 ${top && !isOpen ? 'text-white' : 'text-black'}`}>
                             CмартСталь
                         </h1>
                     </HashLink>
                 </div>
                 <div className="group flex flex-col items-center">
-                    <button className="p-2 rounded-lg lg:hidden text-white" onClick={handleClick}>
+                    <button className={`p-2 rounded-lg lg:hidden ${top && !isOpen ? 'text-white' : 'text-black'}`} onClick={handleClick}>
                         <svg className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             {isOpen ? (
                                 <path
@@ -53,7 +43,7 @@ const NavBar = () => {
                             ) : (
                                 <path
                                     fillRule="evenodd"
-                                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+                                    d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2z"
                                 />
                             )}
                         </svg>
@@ -62,23 +52,15 @@ const NavBar = () => {
                         <NavLinks classes={`${top ? 'text-white' : 'text-black'}`} onContactClick={handleOpenModal} />
                     </div>
 
-                    <div className={`fixed transition-transform duration-300 ease-in-out transit flex justify-center left-0 w-full h-auto rounded-md p-24 bg-white lg:hidden shadow-xl top-14 ${isOpen ? "block" : "hidden"}`}>
+                    <div className={`fixed transition-transform duration-300 ease-in-out transit flex justify-center left-0 w-full h-auto rounded-md p-12 bg-white lg:hidden shadow-xl top-14 ${isOpen ? "block" : "hidden"}`}>
                         <div className="flex flex-col space-y-6">
-                            <NavLinks classes={`${top ? 'text-white' : 'text-black'}`} onContactClick={handleOpenModal} />
+                            <NavLinks classes="text-black" onContactClick={handleOpenModal} />
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* Модальное окно */}
-            <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-                <h2 className="text-xl font-bold mb-4">Контакты</h2>
-                <p>Телефон: +79061121703</p>
-                <p>Email: example@example.com</p>
-                <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
-            </Modal>
         </nav>
     );
-}
+};
 
 export default NavBar;

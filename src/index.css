@@ -4,8 +4,10 @@
 
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: "Noto Serif Display", serif;
+  font-weight: 400;
 }
+
 
 .hero {
   background: url(./images/hero-bg.svg) top center no-repeat;
