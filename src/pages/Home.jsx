@@ -33,15 +33,15 @@ const Home = () => {
                 <h2 className="text-xl font-bold mb-4">Контакты</h2>
                 <div className='flex mb-2'>
                     <img className='w-6 h-6 mr-1' src={phone} alt="phone"/>
-                    <a href="tel:+79061121703">+7 (906) 112-17-03</a>
+                    <a href="tel:+79061121703">+7 (962) 564-21-55</a>
                 </div>
-                <div className='flex mb-2'>
-                    <img className='w-6 h-6 mr-1' src={telegram} alt="telegram"/>
-                    <a href="https://t.me/safbrk" target="_blank" rel="noopener noreferrer">https://t.me/safbrk</a>
-                </div>
+                {/*<div className='flex mb-2'>*/}
+                {/*    <img className='w-6 h-6 mr-1' src={telegram} alt="telegram"/>*/}
+                {/*    <a href="https://t.me/safbrk" target="_blank" rel="noopener noreferrer">https://t.me/safbrk</a>*/}
+                {/*</div>*/}
                 <div className='flex mb-2'>
                     <img className='w-6 h-6 mr-1' src={whatsapp} alt="whatsapp"/>
-                    <a href="https://wa.me/79061121703" target="_blank" rel="noopener noreferrer">+7 (906) 112-17-03</a>
+                    <a href="https://wa.me/79061121703" target="_blank" rel="noopener noreferrer">+7 (962) 564-21-55</a>
                 </div>
                 <div className='flex mb-2'>
                     <img className='w-6 h-6 mr-1' src={mail} alt="e-mail"/>

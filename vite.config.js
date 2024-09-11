@@ -6,4 +6,17 @@ export default defineConfig({
         react({
         jsxRuntime: 'automatic'
     })],
+    build: {
+        minify: 'esbuild',
+        sourcemap: false,
+        rollupOptions: {
+            output: {
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        return 'vendor';
+                    }
+                }
+            }
+        }
+    }
 });

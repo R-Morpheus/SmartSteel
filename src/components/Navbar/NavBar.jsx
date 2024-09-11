@@ -54,7 +54,7 @@ const NavBar = ({ handleOpenModal }) => {
 
                     <div className={`fixed transition-transform duration-300 ease-in-out transit flex justify-center left-0 w-full h-auto rounded-md p-12 bg-white lg:hidden shadow-xl top-14 ${isOpen ? "block" : "hidden"}`}>
                         <div className="flex flex-col space-y-6">
-                            <NavLinks classes="text-black" onContactClick={handleOpenModal} />
+                            <NavLinks classes="text-black flex-col items-start" onContactClick={handleOpenModal}/>
                         </div>
                     </div>
                 </div>

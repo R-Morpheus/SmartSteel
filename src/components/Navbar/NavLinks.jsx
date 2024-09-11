@@ -3,7 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 
 const NavLinks = ({ classes, onContactClick }) => {
     return (
-        <div className="flex items-center">
+        <div className={"flex items-center " + classes }>
             <HashLink className={`px-4 font-extrabold hover:text-blue-900 ${classes}`} smooth to="/#services">
                 Услуги
             </HashLink>
