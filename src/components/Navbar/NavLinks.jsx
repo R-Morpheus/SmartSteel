@@ -13,8 +13,8 @@ const NavLinks = ({ classes, onContactClick }) => {
             <button onClick={onContactClick} className={`px-4 font-extrabold hover:text-blue-900 ${classes}`}>
                 Контакты
             </button>
-            <a href="tel:+79061121703" className={`font-extrabold hover:text-blue-900 ${classes}`}>
-                +7 (906) 112-17-03
+            <a href="tel:+79625642155" className={`font-extrabold hover:text-blue-900 ${classes}`}>
+                +7 (962) 564-21-55
             </a>
         </div>
     );
